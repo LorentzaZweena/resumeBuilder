@@ -1,74 +1,18 @@
-<!doctype html>
-<html lang="en">
+<?php
+    $title = "Login | Resume builder";
+    require './assets/includes/header.php';
+?>
 
-<head>
-
-
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-
-    <title>CV Maker | Login</title>
-
-
-
-
-
-
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
-
-    <link rel="icon" href="logo.png">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
-
-
-    <style>
-        body {
-            height: 100vh;
-            background: rgb(249, 249, 249);
-            background: radial-gradient(circle, rgba(249, 249, 249, 1) 0%, rgba(240, 232, 127, 1) 49%, rgba(246, 243, 132, 1) 100%);
-
-        }
-
-        .form-signin {
-            max-width: 330px;
-            padding: 1rem;
-        }
-
-        .form-signin .form-floating:focus-within {
-            z-index: 2;
-        }
-
-        .form-signin input[type="email"] {
-            margin-bottom: -1px;
-            border-bottom-right-radius: 0;
-            border-bottom-left-radius: 0;
-        }
-
-
-
-        .form-signin input[type="password"] {
-            margin-bottom: 10px;
-            border-top-left-radius: 0;
-            border-top-right-radius: 0;
-        }
-    </style>
-
-
-
-</head>
-
+<div class="d-flex align-items-center" style="height: 100vh">
 <body class="d-flex align-items-center">
-
-
-
     <div class="w-100">
         <main class="form-signin w-100 m-auto bg-white shadow rounded">
-            <form>
+            <form method="POST" action="actions/login.action.php">
                 <div class="d-flex gap-2 justify-content-center">
-                    <img class="mb-4" src="logo.png" alt="" height="70">
+                    <img class="mb-4" src="./assets/images/logo.png" alt="" height="70">
 
                     <div>
-                        <h1 class="h3 fw-normal my-1"><b>CV</b> Maker</h1>
+                        <h1 class="h3 fw-normal my-1"><b>Resume</b> Builder</h1>
                         <p class="m-0">Login to your account</p>
 
                     </div>
@@ -77,11 +21,11 @@
 
 
                 <div class="form-floating">
-                    <input type="email" class="form-control" id="floatingEmail" placeholder="name@example.com">
+                    <input type="email" class="form-control" name="email_id" id="floatingEmail" placeholder="name@example.com" required>
                     <label for="floatingInput"><i class="bi bi-envelope"></i> Email address</label>
                 </div>
                 <div class="form-floating">
-                    <input type="password" class="form-control" id="floatingPassword" placeholder="Password">
+                    <input type="password" name="password" class="form-control" id="floatingPassword" placeholder="Password" required>
                     <label for="floatingPassword"><i class="bi bi-key"></i> Password</label>
                 </div>
 
@@ -91,19 +35,14 @@
                 </button>
                 <div class="d-flex justify-content-between my-3">
 
-                    <a href="" class="text-decoration-none">Forgot Password ?</a>
-                    <a href="" class="text-decoration-none">Register</a>
-
+                    <a href="forgot-password.php" class="text-decoration-none">Forgot Password ?</a>
+                    <a href="register.php" class="text-decoration-none">Register</a>
                 </div>
 
             </form>
         </main>
-
     </div>
-
-
-
-
-</body>
-
-</html>
+</div>
+    <?php
+        require './assets/includes/footer.php';
+    ?>

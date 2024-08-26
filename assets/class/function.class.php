@@ -9,6 +9,18 @@
             $_SESSION['error'] = $msg;
         }
 
+        public function setAuth($data){
+            $_SESSION['Auth'] = $data;
+        }
+
+        public function Auth(){
+            if(isset($_SESSION['Auth'])){
+                return $_SESSION['Auth'];
+            } else {
+                return false;
+            }
+        }
+
         public function error(){
             if(isset($_SESSION['error'])){
                 echo "Swal.fire('', '".$_SESSION['error']."', 'error')";

@@ -3,6 +3,7 @@
     require './assets/includes/header.php';
 ?>
 
+<div class="d-flex align-items-center" style="height: 100vh">
 <div class="w-100">
         <main class="form-signin w-100 m-auto bg-white shadow rounded">
             <form method="POST" action="actions/register.action.php">
@@ -31,15 +32,15 @@
                 </button>
                 <div class="d-flex justify-content-between my-3">
 
-                    <a href="" class="text-decoration-none">Forgot Password ?</a>
-                    <a href="" class="text-decoration-none">Login</a>
+                    <a href="forgot-password.php" class="text-decoration-none">Forgot Password ?</a>
+                    <a href="login.php" class="text-decoration-none">Login</a>
 
                 </div>
 
             </form>
         </main>
     </div>
-
+</div>
 <?php
     require './assets/includes/footer.php';
 ?>

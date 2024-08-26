@@ -17,7 +17,7 @@
 
     <style>
         body {
-            height: 100vh;
+            /* height: 100vh; */
             background: rgb(249, 249, 249);
             background: radial-gradient(circle, rgba(249, 249, 249, 1) 0%, rgba(240, 232, 127, 1) 49%, rgba(246, 243, 132, 1) 100%);
 
@@ -51,4 +51,4 @@
     </style>
 </head>
 
-<body class="d-flex align-items-center">
+<body class="">
