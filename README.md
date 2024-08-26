@@ -1,92 +1,82 @@
 # ResumeBuilder
 
-ResumeBuilder is a web application that allows users to create, customize, and download professional resumes easily. The project is built using [Laravel](https://laravel.com/), [Bootstrap](https://getbootstrap.com/), and other modern web technologies, providing a simple yet powerful user interface to create beautiful resumes.
+ResumeBuilder is a native PHP application that enables users to create, customize, and download professional resumes with ease. The project is simple yet powerful, providing a clean user interface and options to customize the resume layout and content.
 
 ## Features
 
-- **User-friendly interface:** Create resumes quickly using a clean and intuitive UI.
-- **Multiple templates:** Choose from a variety of professional resume templates.
-- **Customization options:** Edit sections like contact information, work experience, education, skills, and more.
+- **User-friendly interface:** Build resumes quickly using an intuitive UI.
+- **Customization options:** Edit sections like personal details, work experience, education, and skills.
 - **PDF download:** Export the resume in PDF format for easy sharing.
-- **Responsive design:** Works on all devices (desktops, tablets, and mobiles).
+- **Responsive design:** Works well across all devices (desktops, tablets, and mobiles).
 
 ## Installation
 
-Follow these steps to set up the project on your local machine.
+To get started with ResumeBuilder on your local machine, follow the steps below.
 
 ### Prerequisites
 
-- [PHP](https://www.php.net/) (>= 8.0)
-- [Composer](https://getcomposer.org/)
-- [Node.js](https://nodejs.org/) (for frontend dependencies)
+- [PHP](https://www.php.net/) (>= 7.4)
+- A local server environment like [XAMPP](https://www.apachefriends.org/) or [MAMP](https://www.mamp.info/).
 
 ### Steps
 
 1. **Clone the repository:**
 
    ```bash
-   git clone https://github.com/yourusername/resumeBuilder.git
+   git clone https://github.com/LorentzaZweena/resumeBuilder.git
    cd resumeBuilder
    ```
 
-2. **Install PHP dependencies:**
+2. **Set up the environment:**
 
-   ```bash
-   composer install
+   Ensure your local environment is set up to run PHP. If you are using XAMPP, place the project folder inside the `htdocs` directory.
+
+3. **Create a database:**
+
+   Set up a MySQL database for the application using phpMyAdmin or a similar tool. Import the provided SQL file (`database.sql`) located in the `database` directory to set up the necessary tables.
+
+4. **Configure database connection:**
+
+   In the root directory, open the `config.php` file and update the database credentials to match your local environment:
+
+   ```php
+   <?php
+   define('DB_HOST', 'localhost');
+   define('DB_USER', 'root');
+   define('DB_PASS', '');
+   define('DB_NAME', 'resume_builder');
+   ?>
    ```
 
-3. **Install Node dependencies:**
+5. **Run the project:**
+
+   Start your local server (e.g., XAMPP or MAMP) and open your browser. Navigate to:
 
    ```bash
-   npm install
+   http://localhost/resumeBuilder
    ```
 
-4. **Set up environment variables:**
-
-   Copy the `.env.example` file and rename it to `.env`. Update the necessary configuration, such as the database connection.
-
-   ```bash
-   cp .env.example .env
-   ```
-
-5. **Generate application key:**
-
-   ```bash
-   php artisan key:generate
-   ```
-
-6. **Migrate the database:**
-
-   Ensure you have set up the database correctly in the `.env` file, then run:
-
-   ```bash
-   php artisan migrate
-   ```
-
-7. **Run the project:**
-
-   ```bash
-   php artisan serve
-   ```
-
-   Open your browser and go to `http://localhost:8000` to view the application.
+   This will load the ResumeBuilder homepage.
 
 ## Usage
 
-1. Register or log in to your account.
-2. Choose a resume template from the available options.
-3. Fill in the required fields such as name, work experience, education, and skills.
-4. Preview your resume and make changes as needed.
-5. Download the resume in PDF format.
+1. **Start Building:**
+   - Open the ResumeBuilder homepage and input your personal information, including name, contact details, work experience, education, and skills.
+
+2. **Customize:**
+   - Customize your resume by selecting which sections to include and modify the layout based on the available options.
+
+3. **Download:**
+   - Once you're happy with the resume, click the "Download" button to generate and download a PDF version.
 
 ## Contributing
 
-We welcome contributions to improve ResumeBuilder. Here's how you can help:
+If you'd like to contribute to the project, follow these steps:
 
 1. Fork the repository.
 2. Create a new branch for your feature or bug fix.
-3. Commit your changes and push to your fork.
-4. Submit a pull request describing your changes.
+3. Commit your changes and push them to your forked repository.
+4. Submit a pull request explaining your changes.
 
 ## License
 
@@ -94,5 +84,5 @@ This project is licensed under the MIT License. See the [LICENSE](LICENSE) file 
 
 ## Contact
 
-If you have any questions, feel free to contact the project owner at [ariva02zweena@gmail.com](mailto:ariva02zweena@gmail.com).
+If you have any questions, feel free to reach out to [ariva02zweena@gmail.com](mailto:ariva02zweena@gmail.com).
 ```
