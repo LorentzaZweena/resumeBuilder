@@ -1,4 +1,5 @@
 <?php
+    session_start();
     require '../assets/class/databaseClass.php';
     require '../assets/class/function.class.php';
     if ($_POST){
@@ -7,14 +8,24 @@
             $full_name = $db->real_escape_string($post['full_name']);
             $email_id = $db->real_escape_string($post['email_id']);
             $password = md5($db->real_escape_string($post['password']));
-            $db->query("SELECT COUNT(*) as users WHERE()")
+            $result = $db->query("SELECT COUNT(*) as user FROM users WHERE(email_id='$email_id' && password='$password')");
+            $result = $result->fetch_assoc();
+            if($result['user']){
+                $fn->setError($email_id. 'is already registered!');
+                $fn->redirect('../login.php');
+                die();
+            }
 
             try{
                 $db->query("INSERT INTO users(full_name, email_id, password) VALUES('$full_name', '$email_id', '$password')");
+                $fn->setAlert('Registered successfully!');
+                $fn->redirect('../register.php');
             } catch(Exception $error){
-                echo $error->getMessage();
+                $fn->setError($error->getMessage());
+                $fn->redirect('../register.php');
             }
         } else{
+            $fn->setError('Please fill the form!');
             $fn->redirect('../register.php');
         }
     }else{
