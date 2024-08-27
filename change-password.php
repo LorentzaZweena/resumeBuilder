@@ -7,7 +7,7 @@
 <div class="d-flex align-items-center" style="height: 100vh">
     <div class="w-100">
         <main class="form-signin w-100 m-auto bg-white shadow rounded">
-            <form>
+            <form action="actions/changepassword.action.php" method="POST">
                 <div class="d-flex gap-2 justify-content-center">
                     <img class="mb-4" src="./assets/images/logo.png" alt="" height="70">
 
@@ -22,7 +22,7 @@
                     <span class="mb-3 fw-bold"><?= $fn->getSession('email')==''?$fn->redirect('forgot-password.php'):$fn->getSession('email') ?></span>
                 </div>
                 <div class="form-floating mb-4">
-                    <input type="email" class="form-control" id="floatingEmail" placeholder="name@example.com">
+                    <input type="text" name="password" class="form-control" id="floatingEmail" placeholder="******">
                     <label for="floatingInput"><i class="bi bi-key"></i> Enter new password</label>
                 </div>
 
