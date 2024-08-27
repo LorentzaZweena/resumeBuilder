@@ -1,5 +1,5 @@
 <?php
-    $title = "Register | Resume builder";
+    $title = "Dashboard | Resume builder";
     require './assets/includes/header.php';
     require './assets/includes/navbar.php';
     $fn->authPage();
