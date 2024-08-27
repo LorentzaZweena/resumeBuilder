@@ -2,6 +2,7 @@
     $title = "Register | Resume builder";
     require './assets/includes/header.php';
     require './assets/includes/navbar.php';
+    $fn->authPage();
 ?>
 
     <div class="container">

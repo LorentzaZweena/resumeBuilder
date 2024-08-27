@@ -1,6 +1,7 @@
 <?php
     $title = "Register | Resume builder";
     require './assets/includes/header.php';
+    $fn->nonAuthPage();
 ?>
 
 <div class="d-flex align-items-center" style="height: 100vh">

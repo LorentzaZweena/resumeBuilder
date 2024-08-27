@@ -38,6 +38,18 @@
                 unset($_SESSION['alert']);
             }
         }
+
+        public function authPage(){
+            if(!isset($_SESSION['Auth'])){
+                $this->redirect('login.php');
+            }
+        }
+
+        public function nonAuthPage(){
+            if(isset($_SESSION['Auth'])){
+                $this->redirect('myresumes.php');
+            }
+        }
     }
     $fn = new functions();
 ?>
