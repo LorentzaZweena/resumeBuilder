@@ -39,6 +39,14 @@
             }
         }
 
+        public function setSession($key, $value){
+            $_SESSION[$key] = $value;
+        }
+
+        public function getSession($key){
+            return $_SESSION[$key];
+        }
+
         public function authPage(){
             if(!isset($_SESSION['Auth'])){
                 $this->redirect('login.php');

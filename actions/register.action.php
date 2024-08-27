@@ -12,14 +12,14 @@
             $result = $result->fetch_assoc();
             if($result['user']){
                 $fn->setError($email_id. 'is already registered!');
-                $fn->redirect('../login.php');
+                $fn->redirect('../register.php');
                 die();
             }
 
             try{
                 $db->query("INSERT INTO users(full_name, email_id, password) VALUES('$full_name', '$email_id', '$password')");
                 $fn->setAlert('Registered successfully!');
-                $fn->redirect('../register.php');
+                $fn->redirect('../myresumes.php');
             } catch(Exception $error){
                 $fn->setError($error->getMessage());
                 $fn->redirect('../register.php');
