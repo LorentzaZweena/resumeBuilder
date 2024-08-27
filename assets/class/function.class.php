@@ -44,7 +44,7 @@
         }
 
         public function getSession($key){
-            return $_SESSION[$key];
+            return $_SESSION[$key]??'';
         }
 
         public function authPage(){

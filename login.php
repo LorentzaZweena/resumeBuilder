@@ -18,9 +18,6 @@
 
                     </div>
                 </div>
-
-
-
                 <div class="form-floating">
                     <input type="email" class="form-control" name="email_id" id="floatingEmail" placeholder="name@example.com" required>
                     <label for="floatingInput"><i class="bi bi-envelope"></i> Email address</label>
