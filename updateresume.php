@@ -26,13 +26,14 @@
                         <label class="form-label">Email</label>
                         <input type="email" name="email_id" placeholder="dev@abc.com" class="form-control" required>
                     </div>
-                    <div class="col-12">
+                    <div class="col-md-6">
                         <label for="inputAddress" class="form-label">Objective</label>
                         <textarea class="form-control" name="objective"></textarea>
                     </div>
                     <div class="col-md-6">
                         <label class="form-label">Mobile No</label>
-                        <input type="number"name="mobile_no" placeholder="9569569569" class="form-control">
+                        <input type="number" min="1111111111" name="mobile_no" placeholder="9569569569" max="9999999999"
+                            class="form-control">
                     </div>
                     <div class="col-md-6">
                         <label class="form-label">Date Of Birth</label>
@@ -88,7 +89,7 @@
                         <label for="inputAddress" class="form-label"> Address</label>
                         <input type="text" class="form-control" id="inputAddress" placeholder="1234 Main St" name="address" required>
                     </div>
-                    <!-- <hr>
+                    <hr>
                     <div class="d-flex justify-content-between">
                         <h5 class=" text-secondary"><i class="bi bi-briefcase"></i> Experience</h5>
                         <div>
@@ -218,10 +219,13 @@
 
 
 
-                    </div> -->
+                    </div>
+
+
 
                     <div class="col-12 text-end">
-                        <button type="submit" class="btn btn-primary"><i class="bi bi-floppy"></i> Add resume</button>
+                        <button type="submit" class="btn btn-primary"><i class="bi bi-floppy"></i> Save
+                            Resume</button>
                     </div>
                 </form>
             </div>
@@ -324,7 +328,9 @@
                             </div>
                         </div>
                     </div>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+        crossorigin="anonymous"></script>
 </body>
 
 </html>
