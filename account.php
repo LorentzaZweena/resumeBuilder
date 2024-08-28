@@ -1,5 +1,5 @@
 <?php
-    $title = "Dashboard | Resume builder";
+    $title = "Account | Resume builder";
     require './assets/includes/header.php';
     require './assets/includes/navbar.php';
     $fn->authPage();
@@ -11,7 +11,7 @@
 
         <div class="bg-white rounded shadow p-2 mt-4">
             <div class="d-flex justify-content-between border-bottom">
-                <h5>Edit Profile</h5>
+                <h5>Account</h5>
                 <div>
                     <a class="text-decoration-none" onclick="history.back()"><i class="bi bi-arrow-left-circle"></i> Back</a>
                 </div>

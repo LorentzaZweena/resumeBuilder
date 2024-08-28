@@ -31,8 +31,8 @@
                 </button>
                 <div class="d-flex justify-content-between my-3">
 
-                    <a href="" class="text-decoration-none">Register</a>
-                    <a href="" class="text-decoration-none">Login</a>
+                    <a href="register.php" class="text-decoration-none">Register</a>
+                    <a href="login.php" class="text-decoration-none">Login</a>
 
                 </div>
 

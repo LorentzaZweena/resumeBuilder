@@ -11,7 +11,7 @@
             <div class="d-flex justify-content-between border-bottom">
                 <h5>Resumes</h5>
                 <div>
-                    <a href="" class="text-decoration-none"><i class="bi bi-file-earmark-plus"></i> Add New</a>
+                    <a href="createresume.php" class="text-decoration-none"><i class="bi bi-file-earmark-plus"></i> Add New</a>
                 </div>
             </div>
 
