@@ -3,8 +3,8 @@
     require './assets/includes/header.php';
     require './assets/includes/navbar.php';
     $fn->authPage();
-    $resumes = $db->query('SELECT * FROM resumes WHERE user_id=' .$fn->Auth()['id']);
-    $resumes = $resumes->fetch_all();
+    $resumes = $db->query('SELECT * FROM resumes WHERE user_id=' .$fn->Auth()['id'].'ORDER BY id DESC');
+    $resumes = $resumes->fetch_all(1);
 ?>
 
     <div class="container">
@@ -27,11 +27,9 @@
                 ?>
                     <div class="col-12 col-md-6 p-2">
                         <div class="p-2 border rounded">
-                        <h5>Web Developer Consultant</h5>
+                        <h5><?= $resume['resume_title']?></h5>
                         <p class="small text-secondary m-0" style="font-size:12px"><i class="bi bi-clock-history"></i>
-                            Last Updated 23
-                            September,
-                            2023 08:09 AM
+                            Last Updated <?= date('d F, Y h:i A', $resume['updated_at'])?>
                         </p>
                     <div class="d-flex gap-2 mt-1">
                         <a href="" class="text-decoration-none small"><i class="bi bi-file-text"></i> Open</a>
