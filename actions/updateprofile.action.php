@@ -27,7 +27,7 @@
                 $fn->redirect('../account.php');
             
         } else{
-            $fn->setError('Please fill the form!');
+            $fn->setError('Unable to edit profile!');
             $fn->redirect('../account.php');
         }
     }else{

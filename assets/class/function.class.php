@@ -58,6 +58,12 @@
                 $this->redirect('myresumes.php');
             }
         }
+
+        public function randomstring(){
+            $string = "0123456789abcdefghijklmnopqrstuvwxyz_" .time().rand(1111, 22223333);
+            $string = str_shuffle($string);
+            return str_split($string, 16)[0];
+        }
     }
     $fn = new functions();
 ?>
