@@ -3,8 +3,12 @@
     require './assets/includes/header.php';
     require './assets/includes/navbar.php';
     $fn->authPage();
-    $resumes = $db->query('SELECT * FROM resumes WHERE user_id=' .$fn->Auth()['id'].'ORDER BY id DESC');
-    $resumes = $resumes->fetch_all(1);
+    // $slug = $_GET['resume'] ?? '';
+    $resumes = $db->query("SELECT * FROM resumes WHERE user_id='.$fn->Auth()['id'].'ORDER BY id DESC");
+    $resumes = $resumes->fetch_assoc(1);
+    // if(!$resume){
+    //     $fn->redirect('myresumes.php');
+    // }
 ?>
 
     <div class="container">
@@ -33,7 +37,7 @@
                         </p>
                     <div class="d-flex gap-2 mt-1">
                         <a href="" class="text-decoration-none small"><i class="bi bi-file-text"></i> Open</a>
-                        <a href="" class="text-decoration-none small"><i class="bi bi-pencil-square"></i> Edit</a>
+                        <a href="updateresume.php?resumeid=<?= $resume['slug']?>" class="text-decoration-none small"><i class="bi bi-pencil-square"></i> Edit</a>
                         <a href="" class="text-decoration-none small"><i class="bi bi-trash2"></i> Delete</a>
                         <a href="" class="text-decoration-none small"><i class="bi bi-share"></i> Share</a>
                         <a href="" class="text-decoration-none small"><i class="bi bi-copy"></i> Clone</a>
