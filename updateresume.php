@@ -127,7 +127,7 @@
                             <div class="p-2 border rounded">
                                 <div class="d-flex justify-content-between">
                                     <h6><?= $exp['position'] ?></h6>
-                                    <a href=""><i class="bi bi-x-lg"></i></a>
+                                    <a href="actions/deleteexp.action.php<?= $exp['id']?>&resume_id=<?= $resume['id']?>&slug<?= $resume['slug']?>"><i class="bi bi-x-lg"></i></a>
                                 </div>
 
                                 <p class="small text-secondary m-0" style="">
@@ -288,6 +288,7 @@
                     <div class="modal-body">
                     <form method="POST" action="actions/addexperience.action.php" class="row g-3">
                         <input type="hidden" name="resume_id" value="<?= $resume['id']?>"/>
+                        <input type="hidden" name="slug" value="<?= $resume['slug']?>"/>
                                 <div class="col-12">
                                     <label for="inputEmail4" class="form-label">Position / job role</label>
                                     <input type="text" class="form-control" id="inputEmail4" name="position" placeholder="Web Developer Consultant (2+ Years)" required>
@@ -327,6 +328,8 @@
                         </div>
                     <div class="modal-body">
                     <form method="POST" action="actions/addeducation.action.php" class="row g-3">
+                    <input type="hidden" name="resume_id" value="<?= $resume['id']?>"/>
+                    <input type="hidden" name="slug" value="<?= $resume['slug']?>"/>
                                 <div class="col-12">
                                     <label for="inputEmail4" class="form-label">Course / degree</label>
                                     <input type="text" class="form-control" id="inputEmail4" name="course" placeholder="Completed 12th Class (Arts Stream)" required>
@@ -374,9 +377,6 @@
                             </div>
                         </div>
                     </div>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
-        crossorigin="anonymous"></script>
-</body>
-
-</html>
+        <?php
+            require './assets/includes/footer.php';
+        ?>
