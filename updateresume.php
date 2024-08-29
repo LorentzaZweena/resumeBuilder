@@ -287,7 +287,7 @@
                         </div>
                     <div class="modal-body">
                     <form method="POST" action="actions/addexperience.action.php" class="row g-3">
-                        <input type="hidden" name="slug" value="<?= $resume['slug']?>"/>
+                        <input type="hidden" name="resume_id" value="<?= $resume['id']?>"/>
                                 <div class="col-12">
                                     <label for="inputEmail4" class="form-label">Position / job role</label>
                                     <input type="text" class="form-control" id="inputEmail4" name="position" placeholder="Web Developer Consultant (2+ Years)" required>

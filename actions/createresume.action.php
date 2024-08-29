@@ -11,7 +11,7 @@
             $values = '';
 
             foreach($post as $index=>$value){
-                $index = $db->real_escape_string($value);
+                $value = $db->real_escape_string($value);
                 $columns .= $index.',';
                 $values .= "'$value',";
             }
