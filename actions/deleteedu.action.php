@@ -12,7 +12,7 @@
 
                 $db->query($query);
                 
-                $fn->setAlert('Experience deleted!');
+                $fn->setAlert('Education deleted!');
                 $fn->redirect('../updateresume.php?resume=id'.$post['slug']);
 
             } catch (Exception $error){

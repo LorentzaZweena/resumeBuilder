@@ -180,7 +180,7 @@
                             <div class="p-2 border rounded">
                                 <div class="d-flex justify-content-between">
                                     <h6><?= $exp['course'] ?></h6>
-                                    <a href=""><i class="bi bi-x-lg"></i></a>
+                                    <a href="actions/deleteedu.action.php<?= $exp['id']?>&resume_id=<?= $resume['id']?>&slug<?= $resume['slug']?>"><i class="bi bi-x-lg"></i></a>
                                 </div>
 
                                 <p class="small text-secondary m-0" style="">
@@ -236,7 +236,7 @@
                             <div class="p-2 border rounded">
                                 <div class="d-flex justify-content-between align-items-center">
                                     <h6><i class="bi bi-caret-right"></i> <?= $skill['skill']?></h6>
-                                    <a href=""><i class="bi bi-x-lg"></i></a>
+                                    <a href="actions/deleteskill.action.php<?= $skill['id']?>&resume_id=<?= $resume['id']?>&slug<?= $resume['slug']?>"><i class="bi bi-x-lg"></i></a>
                                 </div>
                             </div>
                         </div>
@@ -365,6 +365,8 @@
                         </div>
                     <div class="modal-body">
                     <form method="POST" action="actions/addskill.action.php" class="row g-3">
+                        <input type="hidden" name="resume_id" value="<?= $resume['id']?>"/>
+                        <input type="hidden" name="slug" value="<?= $resume['slug']?>"/>
                                 <div class="col-12">
                                     <label for="inputEmail4" class="form-label">Skill</label>
                                     <input type="text" class="form-control" id="inputEmail4" name="skill" placeholder="Basic Knowledge in Computer & Internet" required>

@@ -4,6 +4,7 @@
     require './assets/includes/navbar.php';
     $fn->authPage();
     $slug = $_GET['resume'] ?? '';
+    
     $resumes = $db->query("SELECT * FROM resumes WHERE user_id='.$fn->Auth()['id'].'ORDER BY id DESC");
     $resumes = $resumes->fetch_assoc(1);
     if(!$resume){
