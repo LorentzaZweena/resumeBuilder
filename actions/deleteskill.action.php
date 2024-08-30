@@ -8,7 +8,7 @@
         if($post['id'] && $post['resume_id']){
             
             try{
-                $query = "DELETE FROM educations WHERE id={$post['id']} AND resume_id={$post['resume_id']}";
+                $query = "DELETE FROM skills WHERE id={$post['id']} AND resume_id={$post['resume_id']}";
 
                 $db->query($query);
                 

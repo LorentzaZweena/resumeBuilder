@@ -5,7 +5,7 @@
     if ($_POST){
         $post = $_POST;
 
-        if($post['resume_id'] && $post['course'] && $post['institute'] && $post['started'] && $post['ended']){
+        if($post['resume_id'] && $post['skill']){
             $resumeid = array_shift($post);
             $post2 = $post;
             unset($post['slug']);
@@ -23,13 +23,13 @@
             $values .= $resumeid;
 
             try{
-                $query = "INSERT INTO educations";
+                $query = "INSERT INTO skills";
                 $query .= "($columns)";
                 $query .= "VALUES($values)";
 
                 $db->query($query);
                 
-                $fn->setAlert('Education added!');
+                $fn->setAlert('Skill added!');
                 $fn->redirect('../updateresume.php?resume=id'.$post2['slug']);
 
             } catch (Exception $error){

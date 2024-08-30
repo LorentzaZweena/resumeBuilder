@@ -20,7 +20,7 @@
                 $fn->redirect('../updateresume.php?resume=id'.$post['slug']);;
             }
         } else{
-            $fn->setError('Unable to create resumes!');
+            $fn->setError('Unable to update resumes!');
             $fn->redirect('../updateresume.php?resume=id'.$post['slug']);
         }
     }else{

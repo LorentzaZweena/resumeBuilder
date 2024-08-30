@@ -32,7 +32,10 @@
             </div>
         <div>
 
-                <form action="actions/createresume.action.php" method="POST" class="row g-3 p-3">
+                <form action="actions/updateresume.action.php" method="POST" class="row g-3 p-3">
+                    <input type="hidden" name="id" value="<?= $resume['id'] ?>" />
+                    <input type="hidden" name="slug" value="<?= $resume['slug'] ?>" />
+
                     <h5 class="mt-3 text-secondary"><i class="bi bi-person-badge"></i> Personal Information</h5>
                     <div class="col-12">
                         <label class="form-label">Resume title</label>
