@@ -9,7 +9,7 @@
             $email_id = $db->real_escape_string($post['email_id']);
             $password = md5($db->real_escape_string($post['password']));
 
-            $auth = $fn->Auth()['id'];
+            $authid = $fn->Auth()['id'];
             $result = $db->query("SELECT COUNT(*) as user FROM users WHERE(email_id='$email_id' && id!=$authid)");
             $result = $result->fetch_assoc();
             if($result['user']){
