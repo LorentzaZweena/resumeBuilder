@@ -1,16 +1,39 @@
+<?php
+    require 'assets/class/function.class.php';
+    require 'assets/class/database.class.php';
+    $fn->authPage();
+    $slug = $_GET['resume'] ?? '';
+
+    $resumes = $db->query("SELECT * FROM resumes WHERE (slug = '$slug' AND user_id=".$fn->Auth()['id'].") ");
+    $resume = $resumes->fetch_assoc();
+    if(!$resume){
+        $fn->redirect('myresumes.php');
+    }
+
+    $exps = $db->query("SELECT * FROM experiences WHERE (".$resume['id'].") ");
+    $exps = $exps->fetch_all(1);
+
+    $edus = $db->query("SELECT * FROM educations WHERE (".$resume['id'].") ");
+    $edus = $edus->fetch_all(1);
+
+    $skills = $db->query("SELECT * FROM skills WHERE (".$resume['id'].") ");
+    $skills = $skills->fetch_all(1);
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;400&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css">
-    <link rel="icon" href="logo.png">
+    <link rel="icon" href="./assets/images/logo.png">
     <title>Resume</title>
 </head>
 

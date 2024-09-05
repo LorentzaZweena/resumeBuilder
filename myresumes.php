@@ -37,7 +37,7 @@
                             Last Updated <?= date('d F, Y h:i A', $resume['updated_at'])?>
                         </p>
                     <div class="d-flex gap-2 mt-1">
-                        <a href="" class="text-decoration-none small"><i class="bi bi-file-text"></i> Open</a>
+                        <a href="resume.php?resume=<?= $resume['slug']?>" class="text-decoration-none small"><i class="bi bi-file-text"></i> Open</a>
                         <a href="updateresume.php?resumeid=<?= $resume['slug']?>" class="text-decoration-none small"><i class="bi bi-pencil-square"></i> Edit</a>
                         <a href="actions/deleteresume.action.php?id=<?= $resume['id']?>" class="text-decoration-none small"><i class="bi bi-trash2"></i> Delete</a>
                         <a href="" class="text-decoration-none small"><i class="bi bi-share"></i> Share</a>
