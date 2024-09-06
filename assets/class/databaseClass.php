@@ -15,7 +15,4 @@
             return $this->db;
         }
     }
-
-    $db = new Database();
-    $db = $db->connect();
 ?>

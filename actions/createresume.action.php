@@ -1,6 +1,6 @@
 <?php
     // session_start();
-    require '../assets/class/databaseClass.php';
+    require './assets/class/databaseClass.php';
     require '../assets/class/function.class.php';
     if ($_POST){
         $post = $_POST;
@@ -32,7 +32,7 @@
 
             } catch (Exception $error){
                 $fn->setError($error->getMessage());
-                $fn->redirect('../myresumes.php');
+                $fn->redirect('../createresume.php');
             }
         } else{
             $fn->setError('Unable to create resumes!');
