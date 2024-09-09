@@ -22,28 +22,42 @@
     $columns = '';
     $values = '';
 
-            foreach($resume as $index=>$value){
-                $columns .= $index.',';
-                $values .= "'$value',";
-                unset($resume['id']);
-            }
+    unset($resume['id']);
+    unset($resume['slug']);
+    unset($resume['updated_at']);
+    $resume['resume_title'] = 'clone_'.time();
 
-            $authid = $fn->Auth()['id'];
-            $columns .= 'slug, updated_at, user_id';
-            $values .= "'".$fn->randomstring()."',".time().",".$authid;
+    foreach($resume as $index=>$value){
+        $columns .= $index.',';
+        $values .= "'$value',";
+    }
 
-            try{
-                $query = "INSERT INTO resumes";
-                $query .= "($columns)";
-                $query .= "VALUES($values)";
+    $authid = $fn->Auth()['id'];
+    $columns .= 'slug, updated_at';
+    $values .= "'".$fn->randomstring()."',".time();
 
-                $db->query($query);
+    try{
+        $query = "INSERT INTO resumes";
+        $query .= "($columns)";
+        $query .= "VALUES($values)";
+
+        $db->query($query);
+        $new_resume_id = $db->insert_id;
+
+        foreach($exps as $exp){
+            $query2 .= 'INSERT INTO experience(resume_id, position, company, job_desc, started, ended)';
+            $query2 .= "VALUES ($new_resume_id, '{$exp['position']}', '{$exp['company']}', '{$exp['job_desc']}', '{$exp['started']}', '{$exp['ended']}')";
+
+            $db->query($query2);
+        }
                 
-                $fn->setAlert('Clone added!');
-                $fn->redirect('../myresumes.php');
+        // $fn->setAlert('Clone added!');
+        // $fn->redirect('../myresumes.php');
 
-            } catch (Exception $error){
-                $fn->setError($error->getMessage());
-                $fn->redirect('../myresumes.php');
-            }
+    } catch (Exception $error){
+
+        echo $error->getMessage();
+        // $fn->setError($error->getMessage());
+        // $fn->redirect('../myresumes.php');
+    }
 ?>

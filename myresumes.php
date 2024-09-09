@@ -1,14 +1,20 @@
 <?php
-    $title = "Dashboard | Resume builder";
-    require './assets/includes/header.php';
-    require './assets/includes/navbar.php';
+    // require_once './assets/class/databaseClass.php';
+    require_once './assets/includes/header.php';
+    require_once './assets/includes/navbar.php';
+
+    $db = new Database();
     
+    $title = "Dashboard | Resume builder";
     $fn->authPage();
     $slug = $_GET['resume'] ?? '';
-    
-    $resumes = $db->query("SELECT * FROM resumes WHERE user_id='.$fn->Auth()['id'].'ORDER BY id DESC");
-    $resumes = $resumes->fetch_assoc(1);
-    if(!$resume){
+
+    $userId = $fn->Auth()['id'];
+    $query = "SELECT * FROM resumes WHERE user_id='$userId' ORDER BY id DESC";
+    $resumes = $db->query($query);
+    $resumes = $resumes->fetch_all(MYSQLI_ASSOC);
+
+    if(empty($resumes)){
         $fn->redirect('myresumes.php');
     }
 ?>

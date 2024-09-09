@@ -1,18 +1,24 @@
 <?php
-    class Database {
-        private $host = 'localhost';
-        private $username = 'root';
-        private $database = 'resumebuilder';
-        private $password = '';
-        private $db = null;
+class Database {
+    private $host = 'localhost';
+    private $username = 'root';
+    private $password = '';
+    private $dbname = 'resumebuilder';
+    public $conn;
 
-        function __construct()
-        {
-             $this->db =  new mysqli($this->host, $this->username, $this->password, $this->database);
-        }
-
-        public function connect(){
-            return $this->db;
+    public function __construct() {
+        $this->conn = new mysqli($this->host, $this->username, $this->password, $this->dbname);
+        if ($this->conn->connect_error) {
+            die("Connection failed: " . $this->conn->connect_error);
         }
     }
+
+    public function real_escape_string($string) {
+        return $this->conn->real_escape_string($string);
+    }
+
+    public function query($query) {
+        return $this->conn->query($query);
+    }
+}
 ?>
