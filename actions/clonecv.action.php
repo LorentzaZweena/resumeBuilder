@@ -28,6 +28,7 @@
     $resume['resume_title'] = 'clone_'.time();
 
     foreach($resume as $index=>$value){
+        $value = $db->real_escape_string($value);
         $columns .= $index.',';
         $values .= "'$value',";
     }
@@ -45,19 +46,45 @@
         $new_resume_id = $db->insert_id;
 
         foreach($exps as $exp){
-            $query2 .= 'INSERT INTO experience(resume_id, position, company, job_desc, started, ended)';
+            foreach($exp as $index=>$value){
+                $exp[$index] = $db->real_escape_string($value);
+            }
+            
+            $query2 = 'INSERT INTO experiences(resume_id, position, company, job_desc, started, ended)';
             $query2 .= "VALUES ($new_resume_id, '{$exp['position']}', '{$exp['company']}', '{$exp['job_desc']}', '{$exp['started']}', '{$exp['ended']}')";
 
             $db->query($query2);
         }
+
+        foreach($edus as $edu){
+            foreach($edu as $index=>$value){
+                $edu[$index] = $db->real_escape_string($value);
+            }
+
+            $query3 = 'INSERT INTO educations(resume_id, course, institute, started, ended)';
+            $query3 .= "VALUES ($new_resume_id, '{$edu['course']}', '{$edu['institute']}','{$edu['started']}', '{$edu['ended']}')";
+
+            $db->query($query3);
+        }
+
+        foreach($skills as $skill){
+            foreach($skill as $index=>$value){
+                $skill[$index] = $db->real_escape_string($value);
+            }
+
+            $query4 = 'INSERT INTO skills(resume_id, skill)';
+            $query4 .= "VALUES ($new_resume_id, '{$skill['skill']}')";
+
+            $db->query($query4);
+        }
                 
-        // $fn->setAlert('Clone added!');
-        // $fn->redirect('../myresumes.php');
+        $fn->setAlert('Clone added!');
+        $fn->redirect('../myresumes.php');
 
     } catch (Exception $error){
 
-        echo $error->getMessage();
-        // $fn->setError($error->getMessage());
-        // $fn->redirect('../myresumes.php');
+        // echo $error->getMessage();
+        $fn->setError($error->getMessage());
+        $fn->redirect('../myresumes.php');
     }
 ?>

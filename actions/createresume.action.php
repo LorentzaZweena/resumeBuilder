@@ -1,7 +1,7 @@
 <?php
     // session_start();
-    require './assets/class/databaseClass.php';
-    require '../assets/class/function.class.php';
+    require_once 'assets/class/databaseClass.php';
+    require_once 'assets/class/function.class.php';
     if ($_POST){
         $post = $_POST;
 

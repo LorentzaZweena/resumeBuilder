@@ -2,6 +2,7 @@
     // require_once './assets/class/databaseClass.php';
     require_once './assets/includes/header.php';
     require_once './assets/includes/navbar.php';
+    require './actions/createresume.action.php';
 
     $db = new Database();
     
@@ -14,9 +15,9 @@
     $resumes = $db->query($query);
     $resumes = $resumes->fetch_all(MYSQLI_ASSOC);
 
-    if(empty($resumes)){
-        $fn->redirect('myresumes.php');
-    }
+    // if(empty($resumes)){
+    //     $fn->redirect('myresumes.php');
+    // }
 ?>
 
     <div class="container">
