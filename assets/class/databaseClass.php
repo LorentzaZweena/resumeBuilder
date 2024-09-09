@@ -1,4 +1,5 @@
 <?php
+date_default_timezone_set('Asia/Calcutta');
 class Database {
     private $host = 'localhost';
     private $username = 'root';

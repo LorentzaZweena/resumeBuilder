@@ -4,7 +4,7 @@
 
     $slug = $_GET['resume'] ?? '';
 
-    $resumes = $db->query("SELECT * FROM resumes WHERE (slug = '$slug' AND user_id=".$fn->Auth()['id'].") ");
+    $resumes = $db->query("SELECT * FROM resumes WHERE (slug = '$slug') ");
     $resume = $resumes->fetch_assoc();
     if(!$resume){
         $fn->redirect('myresumes.php');
