@@ -1,14 +1,16 @@
 <?php
     require 'assets/class/function.class.php';
     require 'assets/class/databaseClass.php';
-
+    $db = new Database();
+    $fn = new functions();
+    
     $slug = $_GET['resume'] ?? '';
 
-    $resumes = $db->query("SELECT * FROM resumes WHERE (slug = '$slug') ");
+    $resumes = $db->query("SELECT * FROM resumes where slug = '$slug'");
     $resume = $resumes->fetch_assoc();
-    if(!$resume){
-        $fn->redirect('myresumes.php');
-    }
+    // if(!$resume){
+    //     $fn->redirect('myresumes.php');
+    // }
 
     $exps = $db->query("SELECT * FROM experiences WHERE (".$resume['id'].") ");
     $exps = $exps->fetch_all(1);
@@ -119,7 +121,9 @@
         }
     </style>
 
-</body>
+    <div class="extra w-100 py-2">
+        <i class="bi bi-whatsapp"></i>
+    </div>
 
 <div class="page">
     <div class="subpage">
@@ -278,4 +282,5 @@
 
 </div>
 
+</body>
 </html>

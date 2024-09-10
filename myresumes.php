@@ -1,16 +1,16 @@
 <?php
-    // require_once './assets/class/databaseClass.php';
-    require_once './assets/includes/header.php';
-    require_once './assets/includes/navbar.php';
+    require 'assets/class/databaseClass.php';
+    require 'assets/includes/header.php';
+    require 'assets/includes/navbar.php';
     require './actions/createresume.action.php';
 
     $db = new Database();
     
     $title = "Dashboard | Resume builder";
     $fn->authPage();
-    // $slug = $_GET['resume'] ?? '';
+    $slug = $_GET['resume'] ?? '';
 
-    $userId = $fn->Auth()['id'];
+    $userId = $fn->authPage()['id'];
     $query = "SELECT * FROM resumes WHERE user_id='$userId' ORDER BY id DESC";
     $resumes = $db->query($query);
     $resumes = $resumes->fetch_all(MYSQLI_ASSOC);
@@ -20,8 +20,7 @@
     // }
 ?>
 
-    <div class="container">
-
+   <div class="container">
         <div class="bg-white rounded shadow p-2 mt-4" style="min-height:80vh">
             <div class="d-flex justify-content-between border-bottom">
                 <h5>Resumes</h5>
@@ -30,7 +29,6 @@
                 </div>
             </div>
         </div>
-
             <?php 
                 if($resumes){
                     ?>
@@ -48,7 +46,7 @@
                         <a href="resume.php?resume=<?= $resume['slug']?>" target="_blank" class="text-decoration-none small"><i class="bi bi-file-text"></i> Open</a>
                         <a href="updateresume.php?resumeid=<?= $resume['slug']?>" class="text-decoration-none small"><i class="bi bi-pencil-square"></i> Edit</a>
                         <a href="actions/deleteresume.action.php?id=<?= $resume['id']?>" class="text-decoration-none small"><i class="bi bi-trash2"></i> Delete</a>
-                        <!-- <a href="" class="text-decoration-none small"><i class="bi bi-share"></i> Share</a> -->
+                        <a href="" class="text-decoration-none small"><i class="bi bi-share"></i> Share</a>
                         <a href="actions/clonecv.action.php?resume=<?= $resume['id']?>" class="text-decoration-none small"><i class="bi bi-copy"></i> Clone</a>
                         </div>
                     </div>

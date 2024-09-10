@@ -49,7 +49,7 @@
 
         public function authPage(){
             if(!isset($_SESSION['Auth'])){
-                $this->redirect('login.php');
+                $this->redirect('resume.php');
             }
         }
 

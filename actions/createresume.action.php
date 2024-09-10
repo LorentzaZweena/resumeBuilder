@@ -1,7 +1,9 @@
 <?php
     // session_start();
-    require_once 'assets/class/databaseClass.php';
-    require_once 'assets/class/function.class.php';
+    require_once './assets/class/databaseClass.php';
+    require_once './assets/class/function.class.php';
+    $db = new Database();
+    $fn = new functions();
     if ($_POST){
         $post = $_POST;
 
@@ -23,7 +25,7 @@
             try{
                 $query = "INSERT INTO resumes";
                 $query .= "($columns)";
-                $query .= "VALUES($values)";
+                $query .= "VALUES ($values)";
 
                 $db->query($query);
                 
