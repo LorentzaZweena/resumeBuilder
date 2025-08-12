@@ -86,7 +86,4 @@ This project is licensed under the MIT License. See the [LICENSE](LICENSE) file 
 
 If you have any questions, feel free to reach out to [ariva02zweena@gmail.com](mailto:ariva02zweena@gmail.com).
 
-## Info
-```
-This project is no longer functional and cannot be used.
-```
+## Info : This project is no longer functional and cannot be used!
